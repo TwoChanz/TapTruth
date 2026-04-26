@@ -18,10 +18,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <ClerkProvider>
-      <html lang="en" className={`${prophecy.variable} ${ledger.variable} ${voice.variable}`}>
-        <body className="bg-ink text-bone font-voice min-h-screen">{children}</body>
-      </html>
-    </ClerkProvider>
+    <html lang="en" className={`${prophecy.variable} ${ledger.variable} ${voice.variable}`}>
+      <body className="bg-ink text-bone font-voice min-h-screen">
+        <ClerkProvider>{children}</ClerkProvider>
+      </body>
+    </html>
   );
 }

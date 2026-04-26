@@ -1,0 +1,29 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "design-preview",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["-y", "serve", "C:/Work/TapTruth/design-preview", "-l", "3001"],
+      "port": 3001
+    },
+    {
+      "name": "web",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--dir", "C:/Work/TapTruth", "--filter", "@truthtap/web", "dev"],
+      "port": 3000
+    },
+    {
+      "name": "workers",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--dir", "C:/Work/TapTruth", "--filter", "@truthtap/workers", "dev"],
+      "port": 8787
+    },
+    {
+      "name": "mobile",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--dir", "C:/Work/TapTruth", "--filter", "@truthtap/mobile", "start"],
+      "port": 8081
+    }
+  ]
+}

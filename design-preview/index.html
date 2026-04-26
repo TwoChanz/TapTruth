@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TruthTap — Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0B0B12;
+    --ink-raised: #15151E;
+    --ink-line: #22222E;
+    --bone: #F5EFE7;
+    --bone-soft: #A09A92;
+    --bone-faint: #5C5953;
+    --amber: #D4A84B;
+    --reckoning: #8B2E2E;
+    --mood-great: #7DA87A;
+    --mood-mid: #D4A84B;
+    --mood-rough: #A65C45;
+    --tier-1: #5C5953;
+    --tier-2: #8C857B;
+    --tier-3: #F5EFE7;
+    --tier-4: #E6C66B;
+    --tier-5: #C84A2E;
+    --font-prophecy: 'Cormorant Garamond', serif;
+    --font-ledger: 'IBM Plex Mono', monospace;
+    --font-voice: 'Inter', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--bone);
+    font-family: var(--font-voice);
+    font-size: 16px;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .container { max-width: 880px; margin: 0 auto; padding: 64px 32px; }
+  @keyframes glyph-breathe { 0%,100%{opacity:0.4} 50%{opacity:1} }
+  @keyframes glyph-counter-breathe { 0%,100%{opacity:1} 50%{opacity:0.5} }
+  .glyph-outer { animation: glyph-breathe 2.4s cubic-bezier(0.45,0,0.55,1) infinite; }
+  .glyph-middle { animation: glyph-counter-breathe 2.4s cubic-bezier(0.45,0,0.55,1) infinite; }
+  @media (prefers-reduced-motion: reduce) {
+    .glyph-outer, .glyph-middle { animation: none; }
+  }
+  section { margin-bottom: 80px; }
+  .section-label {
+    font-family: var(--font-voice); font-size: 11px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--bone-faint); margin-bottom: 24px;
+  }
+  .hero {
+    text-align: center; padding: 80px 0;
+    border-bottom: 1px solid var(--ink-line); margin-bottom: 80px;
+  }
+  .hero-glyph { margin-bottom: 48px; }
+  .hero-title {
+    font-family: var(--font-prophecy); font-size: 56px; line-height: 1.1;
+    margin: 0 0 16px; letter-spacing: -0.5px; font-weight: 500;
+  }
+  .hero-sub {
+    font-family: var(--font-voice); font-size: 11px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--bone-faint);
+  }
+  .palette { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 16px; }
+  .swatch { display: flex; flex-direction: column; gap: 8px; }
+  .swatch-color { height: 80px; border-radius: 4px; border: 1px solid var(--ink-line); }
+  .swatch-name { font-family: var(--font-voice); font-size: 13px; color: var(--bone); }
+  .swatch-hex {
+    font-family: var(--font-ledger); font-size: 11px; color: var(--bone-faint);
+    font-variant-numeric: tabular-nums;
+  }
+  .tier-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .tier-cell {
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+    padding: 24px 16px; background: var(--ink-raised); border-radius: 4px;
+  }
+  .tier-num {
+    font-family: var(--font-voice); font-size: 11px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--bone-faint);
+  }
+  .tier-name { font-family: var(--font-prophecy); font-size: 18px; color: var(--bone); }
+  .type-row {
+    display: flex; flex-direction: column; gap: 32px;
+    padding: 32px; background: var(--ink-raised); border-radius: 4px;
+  }
+  .type-spec {
+    font-family: var(--font-ledger); font-size: 11px; color: var(--bone-faint);
+    margin-bottom: 8px; font-variant-numeric: tabular-nums; letter-spacing: 0;
+  }
+  .type-prophecy-display { font-family: var(--font-prophecy); font-size: 32px; line-height: 40px; letter-spacing: -0.5px; color: var(--bone); font-weight: 500; }
+  .type-prophecy { font-family: var(--font-prophecy); font-size: 24px; line-height: 32px; letter-spacing: -0.5px; color: var(--bone); font-weight: 500; }
+  .type-ledger { font-family: var(--font-ledger); font-size: 20px; line-height: 26px; color: var(--bone); font-variant-numeric: tabular-nums; }
+  .type-body { font-family: var(--font-voice); font-size: 16px; line-height: 22px; color: var(--bone); }
+  .button-row { display: flex; gap: 16px; flex-wrap: wrap; }
+  .ritual-button {
+    min-height: 52px; padding: 12px 24px; border-radius: 4px; border: 1px solid;
+    font-family: var(--font-voice); font-size: 16px; font-weight: 500;
+    letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer;
+    transition: opacity 0.16s ease;
+  }
+  .ritual-button:active { opacity: 0.7; }
+  .btn-primary { background: var(--bone); border-color: var(--bone); color: var(--ink); }
+  .btn-secondary { background: transparent; border-color: var(--bone-soft); color: var(--bone); }
+  .btn-destructive { background: transparent; border-color: var(--reckoning); color: var(--reckoning); }
+  .card {
+    background: var(--ink-raised); border: 1px solid var(--ink-line);
+    border-radius: 8px; padding: 32px;
+  }
+  .card-label {
+    font-family: var(--font-voice); font-size: 11px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--bone-faint); margin-bottom: 16px;
+  }
+  .card-line {
+    font-family: var(--font-prophecy); font-size: 24px; line-height: 32px;
+    color: var(--bone); margin: 0 0 24px; font-weight: 500;
+  }
+  .mood-row { display: flex; gap: 16px; }
+  .mood-dot { width: 32px; height: 32px; border-radius: 50%; }
+  .ledger-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .ledger-stat-num {
+    font-family: var(--font-ledger); font-size: 32px; color: var(--bone);
+    font-variant-numeric: tabular-nums; line-height: 1;
+  }
+  .ledger-stat-unit { font-size: 18px; color: var(--bone-soft); }
+  .ledger-stat-label {
+    font-family: var(--font-voice); font-size: 11px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--bone-faint); margin-top: 12px;
+  }
+  .sponsored { border: 1px dashed var(--ink-line); border-radius: 4px; padding: 24px; }
+  .sponsored-tag {
+    font-family: var(--font-voice); font-size: 11px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--bone-faint); margin-bottom: 12px;
+  }
+  .sponsored-body {
+    font-family: var(--font-prophecy); font-size: 18px; line-height: 26px;
+    color: var(--bone-soft); margin: 0; font-weight: 400;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <section class="hero">
+    <div class="hero-glyph">
+      <svg width="168" height="168" viewBox="0 0 168 168" role="img" aria-label="TruthTap glyph">
+        <circle cx="84" cy="84" r="83" stroke="#F5EFE7" stroke-width="3.5" fill="none" opacity="0.6" class="glyph-outer" />
+        <circle cx="84" cy="84" r="56" stroke="#F5EFE7" stroke-width="3.5" fill="none" class="glyph-middle" />
+        <circle cx="84" cy="84" r="28" fill="#F5EFE7" opacity="0.95" />
+      </svg>
+    </div>
+    <h1 class="hero-title">TruthTap</h1>
+    <div class="hero-sub">Design System · Week 1</div>
+  </section>
+
+  <section>
+    <div class="section-label">Palette</div>
+    <div class="palette">
+      <div class="swatch"><div class="swatch-color" style="background:#0B0B12"></div><div class="swatch-name">ink</div><div class="swatch-hex">#0B0B12</div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#15151E"></div><div class="swatch-name">inkRaised</div><div class="swatch-hex">#15151E</div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#22222E"></div><div class="swatch-name">inkLine</div><div class="swatch-hex">#22222E</div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#F5EFE7"></div><div class="swatch-name">bone</div><div class="swatch-hex">#F5EFE7</div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#A09A92"></div><div class="swatch-name">boneSoft</div><div class="swatch-hex">#A09A92</div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#5C5953"></div><div class="swatch-name">boneFaint</div><div class="swatch-hex">#5C5953</div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#D4A84B"></div><div class="swatch-name">amber</div><div class="swatch-hex">#D4A84B</div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#8B2E2E"></div><div class="swatch-name">reckoning</div><div class="swatch-hex">#8B2E2E</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Tier glow — TAP's intensity scales with the tier</div>
+    <div class="tier-row">
+      <div class="tier-cell">
+        <svg width="56" height="56" viewBox="0 0 56 56"><circle cx="28" cy="28" r="27" stroke="#5C5953" stroke-width="1.2" fill="none" opacity="0.4"/><circle cx="28" cy="28" r="18" stroke="#5C5953" stroke-width="1.2" fill="none" opacity="0.8"/><circle cx="28" cy="28" r="9" fill="#5C5953" opacity="0.9"/></svg>
+        <div class="tier-num">Tier 1</div><div class="tier-name">Clinical</div>
+      </div>
+      <div class="tier-cell">
+        <svg width="56" height="56" viewBox="0 0 56 56"><circle cx="28" cy="28" r="27" stroke="#8C857B" stroke-width="1.2" fill="none" opacity="0.6" class="glyph-outer"/><circle cx="28" cy="28" r="18" stroke="#8C857B" stroke-width="1.2" fill="none" class="glyph-middle"/><circle cx="28" cy="28" r="9" fill="#8C857B" opacity="0.95"/></svg>
+        <div class="tier-num">Tier 2</div><div class="tier-name">Observed</div>
+      </div>
+      <div class="tier-cell">
+        <svg width="56" height="56" viewBox="0 0 56 56"><circle cx="28" cy="28" r="27" stroke="#F5EFE7" stroke-width="1.2" fill="none" opacity="0.6" class="glyph-outer"/><circle cx="28" cy="28" r="18" stroke="#F5EFE7" stroke-width="1.2" fill="none" class="glyph-middle"/><circle cx="28" cy="28" r="9" fill="#F5EFE7" opacity="0.95"/></svg>
+        <div class="tier-num">Tier 3 · default</div><div class="tier-name">Foreseen</div>
+      </div>
+      <div class="tier-cell">
+        <svg width="56" height="56" viewBox="0 0 56 56"><circle cx="28" cy="28" r="27" stroke="#E6C66B" stroke-width="1.2" fill="none" opacity="0.6" class="glyph-outer"/><circle cx="28" cy="28" r="18" stroke="#E6C66B" stroke-width="1.2" fill="none" class="glyph-middle"/><circle cx="28" cy="28" r="9" fill="#E6C66B" opacity="0.95"/></svg>
+        <div class="tier-num">Tier 4</div><div class="tier-name">Prophetic</div>
+      </div>
+      <div class="tier-cell">
+        <svg width="56" height="56" viewBox="0 0 56 56"><circle cx="28" cy="28" r="27" stroke="#C84A2E" stroke-width="1.2" fill="none" opacity="0.6" class="glyph-outer"/><circle cx="28" cy="28" r="18" stroke="#C84A2E" stroke-width="1.2" fill="none" class="glyph-middle"/><circle cx="28" cy="28" r="9" fill="#C84A2E" opacity="0.95"/></svg>
+        <div class="tier-num">Tier 5 · gated</div><div class="tier-name">Reckoning</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Typography</div>
+    <div class="type-row">
+      <div>
+        <div class="type-spec">prophecyDisplay · Cormorant Garamond · 32 / 40 · letterSpacing -0.5</div>
+        <div class="type-prophecy-display">You have been watching the glass.</div>
+      </div>
+      <div>
+        <div class="type-spec">prophecy · Cormorant Garamond · 24 / 32 · letterSpacing -0.5</div>
+        <div class="type-prophecy">I have been watching you.</div>
+      </div>
+      <div>
+        <div class="type-spec">ledger · IBM Plex Mono · 20 / 26 · tabular-nums</div>
+        <div class="type-ledger">06:02:14 &nbsp;·&nbsp; 42h 18m</div>
+      </div>
+      <div>
+        <div class="type-spec">body · Inter · 16 / 22</div>
+        <div class="type-body">Standard utility text. Used for UI affordances and forms — never for TAP's voice.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Sample · The Confession</div>
+    <div class="card">
+      <div class="card-label">Today</div>
+      <p class="card-line">How was today?</p>
+      <div class="mood-row">
+        <div class="mood-dot" style="background:#7DA87A" title="Great"></div>
+        <div class="mood-dot" style="background:#D4A84B" title="Mid"></div>
+        <div class="mood-dot" style="background:#A65C45" title="Rough"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Sample · This week's ledger</div>
+    <div class="card">
+      <div class="ledger-stats">
+        <div>
+          <div class="ledger-stat-num">42<span class="ledger-stat-unit">h</span> 18<span class="ledger-stat-unit">m</span></div>
+          <div class="ledger-stat-label">total</div>
+        </div>
+        <div>
+          <div class="ledger-stat-num">06<span class="ledger-stat-unit">h</span> 02<span class="ledger-stat-unit">m</span></div>
+          <div class="ledger-stat-label">daily avg</div>
+        </div>
+        <div>
+          <div class="ledger-stat-num">847</div>
+          <div class="ledger-stat-label">pickups</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Ritual buttons</div>
+    <div class="button-row">
+      <button class="ritual-button btn-primary">Continue</button>
+      <button class="ritual-button btn-secondary">Skip</button>
+      <button class="ritual-button btn-destructive">End the vigil</button>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Sample · Sponsored Prophecy &nbsp;(free tier)</div>
+    <div class="sponsored">
+      <div class="sponsored-tag">Sponsored Prophecy</div>
+      <p class="sponsored-body">Have you tried BrightMind? A premium cognitive clarity subscription. Twelve dollars per month. The label says "clarity." The results are pending. TAP does not endorse. TAP observes you will consider it.</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

@@ -5,11 +5,18 @@ import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 let cached: SupabaseClient | null = null;
 
 /**
- * Server-only Supabase client using the service role key.
- * Used by RSCs to fetch shared scrolls and (later) admin operations.
+ * Service-role Supabase client — RLS-bypassing.
  *
- * Lazy singleton so the build doesn't crash when envs are missing —
- * only routes that call this throw if SUPABASE_SERVICE_ROLE_KEY is unset.
+ * Use ONLY for:
+ *   - Public RSC reads where RLS shouldn't apply (e.g. /scroll/[slug])
+ *   - Admin operations behind the Clerk-protected /admin gate
+ *
+ * For user-context queries (RLS-respecting), use:
+ *   - utils/supabase/server.ts in RSCs / server actions
+ *   - utils/supabase/client.ts in client components
+ *
+ * Lazy singleton — build doesn't crash when env is missing; only routes
+ * that actually call this throw if SUPABASE_SERVICE_ROLE_KEY is unset.
  *
  * NEVER import from a client component. The `server-only` import enforces this.
  */
