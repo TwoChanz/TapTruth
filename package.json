@@ -1,0 +1,23 @@
+{
+  "name": "truthtap",
+  "version": "0.0.0",
+  "private": true,
+  "description": "TruthTap monorepo — Six1Five Studio Dev",
+  "packageManager": "pnpm@9.12.0",
+  "engines": {
+    "node": ">=20.11.0",
+    "pnpm": ">=9.0.0"
+  },
+  "scripts": {
+    "mobile": "pnpm --filter @truthtap/mobile",
+    "web": "pnpm --filter @truthtap/web",
+    "workers": "pnpm --filter @truthtap/workers",
+    "typecheck": "pnpm -r --parallel typecheck",
+    "lint": "pnpm -r --parallel lint",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,yml,yaml}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4"
+  }
+}

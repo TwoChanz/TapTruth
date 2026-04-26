@@ -1,0 +1,16 @@
+name = "truthtap-workers"
+main = "src/index.ts"
+compatibility_date = "2025-01-15"
+compatibility_flags = ["nodejs_compat"]
+
+# Local dev: copy .dev.vars.example → .dev.vars (gitignored).
+# Deploy: set each secret with `wrangler secret put NAME`, or via the Cloudflare dashboard.
+# Required:
+#   - SUPABASE_URL
+#   - SUPABASE_SERVICE_ROLE_KEY
+#   - ANTHROPIC_API_KEY
+#   - WEBHOOK_SECRET (HMAC for Supabase Storage webhook verification)
+
+# Routes — wire after a domain is configured. Until then, the Worker is reachable
+# at https://truthtap-workers.<your-account>.workers.dev.
+# routes = [{ pattern = "api.truthtap.app/*", zone_name = "truthtap.app" }]

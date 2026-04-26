@@ -1,0 +1,4 @@
+SUPABASE_URL=https://xxxxxxxxxxxxxxxx.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOi_replace_me_secret
+ANTHROPIC_API_KEY=sk-ant-replace_me
+WEBHOOK_SECRET=generate-a-strong-random-secret-for-supabase-webhook-hmac

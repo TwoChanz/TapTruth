@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background-color: #0b0b12;
+  color: #f5efe7;
+}
+
+body {
+  font-family: var(--font-voice), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glyph pulse — slow, contemplative. Counter-breathing on the middle ring. */
+@keyframes glyph-breathe {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes glyph-counter-breathe {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.glyph-outer {
+  animation: glyph-breathe 2.4s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.glyph-middle {
+  animation: glyph-counter-breathe 2.4s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glyph-outer,
+  .glyph-middle {
+    animation: none;
+  }
+}
+
+/* Tabular figures helper for inline numbers. */
+.tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+}

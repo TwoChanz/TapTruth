@@ -1,0 +1,18 @@
+{
+  "name": "@truthtap/types",
+  "version": "0.0.0",
+  "private": true,
+  "description": "TruthTap shared TypeScript types — DB schema mirrors + transport shapes",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}
