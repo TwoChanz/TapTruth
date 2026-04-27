@@ -52,6 +52,7 @@ coverage/
 *.key
 *.mobileprovision
 *.orig.*
+.expo-qr.png
 
 # Cache
 .cache/
