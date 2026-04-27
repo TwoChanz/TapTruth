@@ -20,6 +20,15 @@ importers:
       '@clerk/clerk-expo':
         specifier: ^2.4.4
         version: 2.19.31(ofxr2eevjkvc5whmx4lviidzta)
+      '@expo-google-fonts/cormorant-garamond':
+        specifier: ^0.4.1
+        version: 0.4.1
+      '@expo-google-fonts/ibm-plex-mono':
+        specifier: ^0.4.1
+        version: 0.4.1
+      '@expo-google-fonts/inter':
+        specifier: ^0.4.2
+        version: 0.4.2
       '@supabase/supabase-js':
         specifier: ^2.45.4
         version: 2.104.1(bufferutil@4.1.0)(utf-8-validate@6.0.6)
@@ -1287,6 +1296,15 @@ packages:
   '@eslint/js@8.57.1':
     resolution: {integrity: sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+
+  '@expo-google-fonts/cormorant-garamond@0.4.1':
+    resolution: {integrity: sha512-e8J4Cn13K1txygamg50n3odLUsYP7Ck28XOGobMi7uDsWvFmp/jgK0qcALqJTlmi9NczSWUNdERxcLauHCBa/Q==}
+
+  '@expo-google-fonts/ibm-plex-mono@0.4.1':
+    resolution: {integrity: sha512-/yYz1mPZq8Nd4tSiH0SBDPEdJUqiOGBwVgSrQvLuw7SPh6C7ezBzmi6eFyHY4QaQwjHDmOLSBKsxzq8ZDFXVAg==}
+
+  '@expo-google-fonts/inter@0.4.2':
+    resolution: {integrity: sha512-syfiImMaDmq7cFi0of+waE2M4uSCyd16zgyWxdPOY7fN2VBmSLKEzkfbZgeOjJq61kSqPBNNtXjggiQiSD6gMQ==}
 
   '@expo/bunyan@4.0.1':
     resolution: {integrity: sha512-+Lla7nYSiHZirgK+U/uYzsLv/X+HaJienbD5AKX1UQZHYfWaP+9uuQluRB4GrEVWF0GZ7vEVp/jzaOT9k/SQlg==}
@@ -7607,6 +7625,12 @@ snapshots:
       - supports-color
 
   '@eslint/js@8.57.1': {}
+
+  '@expo-google-fonts/cormorant-garamond@0.4.1': {}
+
+  '@expo-google-fonts/ibm-plex-mono@0.4.1': {}
+
+  '@expo-google-fonts/inter@0.4.2': {}
 
   '@expo/bunyan@4.0.1':
     dependencies:
