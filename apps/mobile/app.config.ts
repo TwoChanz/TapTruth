@@ -27,7 +27,11 @@ const config = (): ExpoConfig => ({
     router: {
       origin: false,
     },
+    eas: {
+      projectId: '60dbc453-81ab-4ad6-8145-10bdf93b9db7',
+    },
   },
+  // owner: '<your-expo-account-username>', // set when you create an Expo org/team
 });
 
 export default config;
