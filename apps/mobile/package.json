@@ -2,7 +2,7 @@
   "name": "@truthtap/mobile",
   "version": "0.0.0",
   "private": true,
-  "main": "index.ts",
+  "main": "expo-router/entry",
   "scripts": {
     "start": "expo start",
     "ios": "expo run:ios",
@@ -12,6 +12,7 @@
     "lint": "expo lint"
   },
   "dependencies": {
+    "@babel/runtime": "^7.29.2",
     "@clerk/clerk-expo": "^2.4.4",
     "@expo-google-fonts/cormorant-garamond": "^0.4.1",
     "@expo-google-fonts/ibm-plex-mono": "^0.4.1",
